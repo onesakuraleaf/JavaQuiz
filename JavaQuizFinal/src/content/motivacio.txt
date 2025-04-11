@@ -1,0 +1,7 @@
+A Java egy népszerű programozási nyelv, amely lehetővé teszi, hogy a programok különböző rendszereken is futtathatók legyenek. A Java egyik legnagyobb előnye, hogy „írj egyszer, futtass bárhol”, így könnyedén működnek Windows, Mac, Linux és más operációs rendszereken is.
+
+A Java egy objektumorientált nyelv, ami azt jelenti, hogy a programokat osztályok és objektumok alkotják. Segít abban, hogy a kódok jól szervezettek, könnyen olvashatók és újrahasználhatók legyenek.
+
+A nyelv egyik hatalmas előnye a platformfüggetlenség. A megírt alkalmazások bárhol és bármilyen eszközön futtathatók. Továbbá egy széles körben használt programozási nyelv. A Java-t webalkalmazások, Android appok és nagy rendszerek fejlesztésére is használják. 
+
+A Java segít jobban megérteni, hogyan építhető fel egy jól strukturált program, valamint segít fejleszteni az analitikus készségeket.

@@ -1,0 +1,10 @@
+A változó egy terület neve a memóriában. Olyan nevek, amelyeken keresztül értékeket tárolhatunk a memóriában. A változó nevének (azonosító) betűvel vagy aláhúzással kell kezdődnie és kizárólag betűből és aláhúzásból állhat.
+
+A változók elnevezési szokásai eltérőek lehetnek, de gyakori a kisbetűk és az aláhúzás használata a szavak elválasztására (pl.: születési_dátum)
+A deklarált változó értéke hozzárendelési utasítással módosul például:
+
+int szam = 10;
+
+A fenti példában deklaráltunk egy szam nevű változót. Mivel eléírtuk az "int" kulcsszót ezért ez a változó értéke egy egész szám lesz.
+
+Az adattípusok meghatározzák milyan típusú értékeket tárolhatunk.

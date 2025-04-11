@@ -1,0 +1,5 @@
+A Java programozási nyelvben alapvető adattípusokkal dolgozunk, például int, double, char, boolean stb. Az adattípusok segítségével tárolhatunk számokat, karaktereket vagy igaz/hamis értékeket.
+
+int szam = 10;
+double ar = 3.14;
+boolean igaz = true;

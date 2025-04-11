@@ -1,0 +1,13 @@
+Mint minden új programozási nyelv tanulásakor, nézzük meg a klasszikus "Hello World" programot:
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}					      
+A "public class HelloWorld" a Java osztály deklarációja.. Az osztályok a Java programok alapvető építőelemei, ezért minden Java programnak legalább egy osztályra szüksége van.Az osztály neve itt HelloWorld. A "public" kulcsszó azt jelenti, hogy az osztály bárhonnan elérhető, azaz más osztályok is használhatják.
+
+public static void main(String[] args): Ez a Java program belépési pontja. A "main" metódus az, ahol a program végrehajtása elkezdődik, amikor a programot futtatjuk. Minden Java programnak szüksége van egy main metódusra, hogy elinduljon. Akárcsak az előzőnél, a "public" itt is azt jelenti, hogy bárhonnan elérhető. A "static" azt jelenti, hogy a metódus az osztályhoz tartozik, és nem szükséges objektumot létrehozni a meghívásához. A "void" kulcsszó azt jelenti, hogy a metódus nem ad vissza semmilyen értéket.A "String[] args" egy paraméter, amely lehetővé teszi a parancssori argumentumok átadását a programnak. Ha például a programot úgy indítjuk, hogy szövegeket adjunk meg parancssori argumentumként, azok az args tömbben érkeznek.
+
+System.out.println("Hello, World!");: Ez a parancs felelős a "Hello, World!" szöveg kiírásáért a konzolra. A "System" egy beépített osztály, amely lehetővé teszi a különböző rendszer műveletek végrehajtását, például a konzolra történő írást. Az "out" a System osztály egy előre definiált PrintStream objektuma, amely lehetővé teszi a szöveg kiírását a konzolra. A "println" metódus kiírja a megadott szöveget a képernyőre, majd egy új sort kezd.
+

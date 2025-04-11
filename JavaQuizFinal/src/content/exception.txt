@@ -1,0 +1,148 @@
+A kivételkezelés egy olyan mechanizmus, amellyel a program futása során fellépő hibákat kezeljük, hogy azok ne okozzák az alkalmazás összeomlását. A Java-ban a kivételek objektumok, amelyek a Throwable osztályból származnak, és két fő csoportba sorolhatók:
+
+-Ellenőrzött kivételek (Checked Exceptions) – Fordítási időben ellenőrzi a fordító (pl. IOException).
+-Nem ellenőrzött kivételek (Unchecked Exceptions) – Futási időben keletkeznek (pl. NullPointerException).
+
+1. Kivételkezelés alapjai
+
+1.1 Try-Catch blokk
+
+A try blokkban lévő kódot próbáljuk végrehajtani. Ha kivétel keletkezik, a catch blokk elkapja és kezeli.
+
+try {
+    // Kód, ami kivételt dobhat
+    int result = 10 / 0; // ArithmeticException
+} catch (ArithmeticException e) {
+    // Hiba kezelése
+    System.out.println("Hiba történt: " + e.getMessage());
+}
+
+Kimenet:
+
+Hiba történt: / by zero
+
+1.2 Finally blokk
+
+A finally blokk mindig lefut, függetlenül attól, hogy volt-e kivétel. Pl. erőforrások lezárására használják (pl. fájlbezárás).
+
+try {
+    System.out.println("Try blokk");
+} catch (Exception e) {
+    System.out.println("Catch blokk");
+} finally {
+    System.out.println("Finally blokk – mindig lefut!");
+}
+
+Kimenet:
+
+Try blokk
+Finally blokk – mindig lefut!
+
+2. Kivétel típusok
+
+2.1 Ellenőrzött kivételek (Checked Exceptions)
+-Fordítási időben ellenőrzött, kötelező kezelni (try-catch vagy throws).
+-Pl. fájlkezelésnél (IOException)
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            File file = new File("nemletezo.txt");
+            Scanner scanner = new Scanner(file); // FileNotFoundException-t dobhat
+        } catch (FileNotFoundException e) {
+            System.out.println("Fájl nem található!");
+        }
+    }
+}
+
+2.2 Nem ellenőrzött kivételek (Unchecked Exceptions)
+-Fordítási időben nem ellenőrzött, futási hibák (pl. nullra hivatkozás, osztás nullával).
+-Pl. NullPointerException:
+
+String text = null;
+try {
+    System.out.println(text.length()); // NullPointerException
+} catch (NullPointerException e) {
+    System.out.println("A változó null!");
+}
+
+3. Saját kivétel létrehozása
+
+Létrehozhatunk egyedi kivételeket, ha a beépített kivételek nem felelnek meg. Ehhez a Exception osztályból kell örökölni.
+
+// Saját kivétel osztály
+class NincsPenzException extends Exception {
+    public NincsPenzException(String message) {
+        super(message);
+    }
+}
+
+// Használat
+public class BankAccount {
+    private double balance = 100;
+    
+    public void withdraw(double amount) throws NincsPenzException {
+        if (amount > balance) {
+            throw new NincsPenzException("Nincs elég pénz a számlán!");
+        }
+        balance -= amount;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount();
+        try {
+            account.withdraw(200); // Kivételt dob
+        } catch (NincsPenzException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+Kimenet:
+
+Nincs elég pénz a számlán!
+
+4. Kivétel továbbdobása (throws)
+
+Ha egy metódus nem kezeli a kivételt, de tud róla, továbbdobhatja a hívó metódusnak.
+
+public class FileReader {
+    // A metódus nem kezeli a kivételt, de deklarálja
+    public String readFile(String path) throws FileNotFoundException {
+        File file = new File(path);
+        Scanner scanner = new Scanner(file);
+        return scanner.nextLine();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        FileReader reader = new FileReader();
+        try {
+            String content = reader.readFile("adat.txt");
+        } catch (FileNotFoundException e) {
+            System.out.println("Fájlhiba: " + e.getMessage());
+        }
+    }
+}
+
+
+Összegzés
+
+Try-Catch-Finally: A try blokkban próbáljuk végrehajtani a kódot, a catch elkapja a kivételeket, a finally mindig lefut.
+
+Kivétel típusok:
+
+Ellenőrzött kivételek (pl. IOException) – kötelező kezelni.
+
+Nem ellenőrzött kivételek (pl. NullPointerException) – futási hibák.
+
+Saját kivétel: Exception osztályból származtatunk.
+
+Továbbdobás: A throws kulcsszóval jelezzük, hogy a metódus dobhat kivételt.

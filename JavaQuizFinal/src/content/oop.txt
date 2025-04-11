@@ -1,0 +1,193 @@
+Az Objektum Orientált Programozás (OOP) egy olyan programozási paradigma, amelyben az alkalmazásunkat objektumok köré szervezzük. Ezek az objektumok valós entitásokat modelleznek, és lehetővé teszik, hogy a kódunkat strukturáltabban, könnyebben karbantarthatóan és újrafelhasználhatóan írjuk meg. A Java egy tiszta OOP nyelv, ami azt jelenti, hogy szinte minden benne objektum (kivéve a primitív típusokat).
+
+1. Osztály (Class) és Objektum (Object)
+
+Osztály (Class) – Az objektum sablonja
+Az osztály egy tervrajz, ami leírja, hogy egy adott típusú objektumnak milyen adattagjai (mezői) és viselkedése (metódusai) lesznek.
+Például, ha kutyákat szeretnénk modellezni, létrehozhatunk egy Dog osztályt:
+
+public class Dog {
+    // Mezők (adattagok) - az objektum állapotát tárolják
+    String name;
+    int age;
+    String breed;
+    
+    // Konstruktor - az objektum létrehozásakor fut le
+    public Dog(String name, int age, String breed) {
+        this.name = name;
+        this.age = age;
+        this.breed = breed;
+    }
+    
+    // Metódus - viselkedés leírása
+    public void bark() {
+        System.out.println(name + " mondja: Woof!");
+    }
+    
+    // Getter metódus - privát adat elérése
+    public String getName() {
+        return name;
+    }
+}
+
+Objektum (Object) – Az osztály példánya. Amikor egy osztályt példányosítunk, létrejön egy objektum, ami konkrét adatokat tárol. 
+
+Például:
+
+public class Main {
+    public static void main(String[] args) {
+        // Objektum létrehozása a Dog osztályból
+        Dog myDog = new Dog("Bodri", 5, "Kuvasz");
+        
+        // Metódus hívása
+        myDog.bark(); // Kiírja: "Bodri mondja: Woof!"
+        
+        // Adat lekérése
+        System.out.println(myDog.getName()); // Kiírja: "Bodri"
+    }
+}
+
+2. Az OOP 4 alapelve
+
+2.1 Egységbezárás (Encapsulation)
+A lényege, hogy az adatokat elrejtjük a külső osztályok elől, és csak meghatározott metódusokon (getter/setter) keresztül engedjük elérni őket. Ez több előnnyel jár:
+
+Adatvédelem: Nem módosítható közvetlenül, csak szabályozott módon.
+Könnyebb karbantarthatóság: Ha változtatni kell az adatkezelésen, csak a getter/setter metódusokat kell módosítani.
+
+Példa:
+
+public class BankAccount {
+    private double balance; // privát mező
+    
+    // Publikus metódusok az adat eléréséhez
+    public double getBalance() {
+        return balance;
+    }
+    
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+        }
+    }
+    
+    public void withdraw(double amount) {
+        if (amount <= balance) {
+            balance -= amount;
+        } else {
+            System.out.println("Nincs elég pénz!");
+        }
+    }
+}
+
+Használat:
+
+ankAccount account = new BankAccount();
+account.deposit(1000);
+account.withdraw(500);
+System.out.println(account.getBalance()); // 500.0
+
+2.2 Öröklődés (Inheritance)
+Az öröklődés lehetővé teszi, hogy egy új osztály (gyermekosztály) megörököljön egy másik osztály (szülőosztály) tulajdonságait. Ez kódújrafelhasználást és hierarchikus struktúrát eredményez.
+
+Példa:
+
+// Szülőosztály (ősosztály)
+public class Animal {
+    protected String name; // protected: látható a gyermekosztályban
+    
+    public Animal(String name) {
+        this.name = name;
+    }
+    
+    public void eat() {
+        System.out.println(name + " eszik...");
+    }
+}
+
+// Gyermekosztály (örököl az Animal-től)
+public class Cat extends Animal {
+    public Cat(String name) {
+        super(name); // Az ősosztály konstruktorának hívása
+    }
+    
+    // Új metódus
+    public void meow() {
+        System.out.println(name + " mondja: Meow!");
+    }
+    
+    // Metódus felülírása (override)
+    @Override
+    public void eat() {
+        System.out.println(name + " halat eszik!");
+    }
+}
+
+Használat:
+
+Cat myCat = new Cat("Cirmi");
+myCat.eat();  // "Cirmi halat eszik!" (felülírt metódus)
+myCat.meow(); // "Cirmi mondja: Meow!" (új metódus)
+
+2.3 Polimorfizmus (Polymorphism)
+A polimorfizmus azt jelenti, hogy ugyanaz a metódus különböző formában viselkedhet attól függően, hogy melyik osztályban van implementálva.
+
+2.4 Abstrakció (Abstraction)
+Az absztrakció azt jelenti, hogy elrejtjük a bonyolult implementációt, és csak a lényeges funkciókat mutatjuk meg. Ezt absztrakt osztályokkal és interfészekkel érjük el.
+
+2.4.1 Absztrakt osztály (Abstract Class)
+
+-Nem példányosítható, csak öröklődésre szolgál.
+-Tartalmazhat absztrakt metódusokat (nincs implementáció).
+
+abstract class Shape {
+    abstract double area(); // Absztrakt metódus
+    
+    void printArea() {
+        System.out.println("Terület: " + area());
+    }
+}
+
+class Circle extends Shape {
+    double radius;
+    
+    Circle(double radius) {
+        this.radius = radius;
+    }
+    
+    @Override
+    double area() {
+        return Math.PI * radius * radius;
+    }
+}
+
+2.4.2 Interfész (Interface)
+
+-Tiszta absztrakció, csak metódus deklarációkat tartalmaz.
+-Egy osztály több interfészt is implementálhat (többszörös öröklődés helyett).
+
+interface Drawable {
+    void draw(); // Nincs implementáció
+}
+
+class Circle implements Drawable {
+    @Override
+    public void draw() {
+        System.out.println("Kör rajzolása");
+    }
+}
+
+
+Összegzés
+
+Osztály (Class): Objektumok sablonja (mezők + metódusok).
+
+Objektum (Object): Az osztály egy konkrét példánya.
+
+Egységbezárás (Encapsulation): Adatok védelme privát mezőkkel és getter/setter metódusokkal.
+
+Öröklődés (Inheritance): Egy osztály örökölhet egy másik osztály tulajdonságait (extends).
+
+Polimorfizmus (Polymorphism): Ugyanaz a metódus más viselkedést produkál (overloading/overriding).
+
+Abstrakció (Abstraction): Komplexitás csökkentése absztrakt osztályokkal és interfészekkel.

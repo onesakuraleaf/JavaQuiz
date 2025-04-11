@@ -1,0 +1,85 @@
+A Java programozási nyelvben az operátorok olyan szimbólumok, amelyek különböző műveleteket hajtanak végre változókon és értékeken. Az operátorok a programozás alapvető eszközei, amelyek lehetővé teszik számok, szövegek, logikai értékek és egyéb típusok manipulálását.
+
+A Java operátorokat különböző kategóriákba sorolhatjuk, például:
+
+Aritmetikai operátorok: Matematikai műveletek végrehajtása
+
+Összehasonlító operátorok: Két érték közötti összehasonlítás
+
+Logikai operátorok: Logikai kifejezéseket értékelnek ki.
+
+Értékadó operátorok: Az egyik változó értékét hozzárendelik egy másik változóhoz.
+
+1. Aritmetikai operátorok:
+Aritmetikai műveleteket végeznek számokkal. A leggyakoribb aritmetikai operátorok a következők:
+
++: Összeadás
+-: Kivonás
+*: Szorzás
+/: Osztás
+%: Maradékos osztás (moduló)
+
+Példa:
+
+int a = 10, b = 3;
+int sum = a + b;   // 10 + 3 = 13
+int diff = a - b;  // 10 - 3 = 7
+int product = a * b; // 10 * 3 = 30
+int quotient = a / b; // 10 / 3 = 3 (egész osztás)
+int remainder = a % b; // 10 % 3 = 1 (maradékos osztás)
+
+2. Összehasonlító operátorok:
+Ezek az operátorok két értéket hasonlítanak össze, és egy logikai értéket (igaz vagy hamis) adnak vissza.
+
+==: Egyenlőség
+!=: Különbözőség
+>: Nagyobb
+<: Kisebb
+>=: Nagyobb vagy egyenlő
+<=: Kisebb vagy egyenlő
+
+Példa:
+
+int x = 5, y = 10;
+boolean isEqual = (x == y);  // false
+boolean isNotEqual = (x != y); // true
+boolean isGreaterThan = (x > y); // false
+boolean isLessThan = (x < y); // true
+boolean isGreaterOrEqual = (x >= y); // false
+
+3. Logikai operátorok:
+A logikai operátorokat általában boolean típusú értékek kombinálására használják.
+
+&&: Logikai ÉS (AND)
+||: Logikai VAGY (OR)
+!: Logikai NEM (NOT)
+
+Példa:
+
+boolean a = true, b = false;
+boolean andResult = a && b; // false
+boolean orResult = a || b; // true
+boolean notResult = !a; // false
+
+4. Értékadó operátorok:
+Ezek az operátorok lehetővé teszik, hogy egy változónak értéket rendeljünk.
+
+=: Értékadás
++=: Összeadás és értékadás
+-=: Kivonás és értékadás
+*=: Szorzás és értékadás
+/=: Osztás és értékadás
+
+Példa:
+
+int a = 5;
+a += 3;  // a = a + 3 -> a = 8
+a -= 2;  // a = a - 2 -> a = 6
+a *= 4;  // a = a * 4 -> a = 24
+a /= 6;  // a = a / 6 -> a = 4
+
+Összegzés:
+A Java operátorai az alapvető műveletek elvégzésére szolgálnak, beleértve a matematikai számításokat, logikai kifejezések kiértékelését és az értékek hozzárendelését. Megértésük kulcsfontosságú a hatékony és olvasható kód írásában.
+
+
+

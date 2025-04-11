@@ -1,0 +1,89 @@
+Az elágazások (feltételes szerkezetek) a programozásban lehetővé teszik, hogy egy program különböző utakat kövessen attól függően, hogy egy adott feltétel igaz-e vagy sem. Ezek a feltételes szerkezetek alapvető szerepet játszanak a programok logikai irányításában.
+
+1. Feltételek és relációs operátorok
+
+
+A feltételek olyan kifejezések, amelyek igazak vagy hamisak lehetnek. A programunk különböző áramlásokat hozhat létre attól függően, hogy egy adott feltétel igaz-e. A feltételek gyakran relációs operátorokkal kombinálva jelennek meg. A leggyakoribb relációs operátorok a következők:
+
+== (egyenlőség) – Ellenőrzi, hogy két érték egyenlő-e.
+!= (különbözőség) – Ellenőrzi, hogy két érték nem egyenlő-e.
+< (kisebb) – Ellenőrzi, hogy az első érték kisebb-e, mint a második.
+> (nagyobb) – Ellenőrzi, hogy az első érték nagyobb-e, mint a második.
+<= (kisebb vagy egyenlő) – Ellenőrzi, hogy az első érték kisebb vagy egyenlő-e, mint a második.
+>= (nagyobb vagy egyenlő) – Ellenőrzi, hogy az első érték nagyobb vagy egyenlő-e, mint a második.
+
+2. Feltételes elágazások
+
+A leggyakoribb elágazás a if szerkezet, amely egy adott feltétel alapján dönti el, hogy a program végrehajtson egy műveletet vagy sem. Az alapvető if szerkezet így néz ki:
+
+if (feltétel) {
+    // A kód, amely akkor fut le, ha a feltétel igaz
+}
+
+Példa:
+
+int szám = 5;
+if (szám > 0) {
+    System.out.println("A szám pozitív.");
+}
+
+Ebben a példában a program csak akkor írja ki, hogy "A szám pozitív.", ha a változó értéke nagyobb, mint 0.
+
+3. else if elágazás
+
+Ha több különböző feltételt szeretnénk ellenőrizni, akkor használhatjuk az else if szerkezetet, amely lehetővé teszi több feltétel vizsgálatát. Az else if után új feltételt adhatunk meg, amelyet a program a megfelelő sorrendben értékel.
+
+if (feltétel1) {
+    // Ha az első feltétel igaz
+} else if (feltétel2) {
+    // Ha az első nem igaz, de a második igen
+} else {
+    // Ha egyik feltétel sem igaz
+}
+
+Példa:
+
+int szám = 0;
+if (szám > 0) {
+    System.out.println("A szám pozitív.");
+} else if (szám < 0) {
+    System.out.println("A szám negatív.");
+} else {
+    System.out.println("A szám nulla.");
+}
+
+Ebben az esetben a program először ellenőrzi, hogy a szám pozitív-e. Ha nem, akkor megnézi, hogy negatív-e, és ha egyik sem igaz, akkor azt írja ki, hogy a szám nulla.
+
+4. switch elágazás
+
+A switch elágazás egy másik lehetőség, amely különösen akkor hasznos, ha több lehetséges értéket kell összehasonlítani egyetlen változóval. A switch kifejezés különböző case ágakat tartalmaz, amelyek a változó lehetséges értékeinek felelnek meg. Ha egy case érték megegyezik a változó értékével, akkor az ahhoz tartozó kód fut le.
+
+witch (változó) {
+    case érték1:
+        // Ha a változó értéke érték1
+        break;
+    case érték2:
+        // Ha a változó értéke érték2
+        break;
+    default:
+        // Ha egyik case sem egyezik
+}
+
+Példa:
+
+int nap = 3;
+switch (nap) {
+    case 1:
+        System.out.println("Hétfő");
+        break;
+    case 2:
+        System.out.println("Kedd");
+        break;
+    case 3:
+        System.out.println("Szerda");
+        break;
+    default:
+        System.out.println("Nem egy érvényes nap.");
+}
+
+Ebben a példában, ha a nap változó értéke 3, akkor a program kiírja, hogy "Szerda". Ha a változó értéke nem található meg a case ágak között, akkor a default blokk fut le.

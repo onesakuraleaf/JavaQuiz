@@ -1,0 +1,74 @@
+A ciklus egy alapvető fogalom, amit érdemes részletesen bemutatni, mivel gyakran használjuk őket a programozásban. Ezek segítségével ismétlődő műveleteket hajthatunk végre. Három féle ciklust különböztetünk meg: for, while és do-while.
+
+1. for ciklus
+
+A for ciklust akkor használjuk, ha tudjuk, hogy hányszor szeretnénk végrehajtani egy műveletet.
+
+Példa:
+
+public class ForExample {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i);
+        }
+    }
+}
+
+A ciklus változója (i) 1-től kezdődik, és minden iterációval 1-et növekszik. A ciklus addig fut, amíg i értéke el nem éri a 10-et.
+
+2. while ciklus
+
+A while ciklus addig fut, amíg egy adott feltétel igaz. A ciklus első lefutása előtt ellenőrzi a feltételt. Ennél a ciklusnál ügyelni kell arra, hogy ne hozzunk létre végtelen ciklust. A végtelen ciklus az, amely korlátlanul folytatódik, mivel a hurokfeltétel soha nem értékelődik hamisra. Ez futásidejű hibát okozhat.
+
+Példa:
+
+public class WhileExample {
+    public static void main(String[] args) {
+        int i = 1;
+        while (i <= 10) {
+            System.out.println(i);
+            i++; // Ne felejtsük el növelni az i értékét!
+        }
+    }
+}
+
+A ciklus csak akkor fut, ha az i <= 10 feltétel igaz. Mivel az i++ minden iterációban növeli az i értékét, a ciklus végül leáll.
+
+3. do-while ciklus
+
+A do-while ciklus hasonló a while ciklushoz, de itt először mindig végrehajtódik a ciklus törzse, majd a feltételt a ciklus végén ellenőrizzük. Ez biztosítja, hogy a ciklus legalább egyszer végrehajtódik.
+
+Példa:
+
+public class DoWhileExample {
+    public static void main(String[] args) {
+        int i = 1;
+        do {
+            System.out.println(i);
+            i++;
+        } while (i <= 10);
+    }
+}
+
+A ciklus először kiírja az i értékét, majd növeli azt, és végül ellenőrzi, hogy az i <= 10 feltétel továbbra is igaz-e.
+
+5. Kivételes esetek (Break és Continue)
+
+A break és continue utasítások a ciklusokban különböző hatásokat gyakorolnak. Bár a szünet és folytatás utasítások kényelmesek lehetnek, nem helyettesíthetik a jobb algoritmust.
+
+-break megszakítja a ciklust.
+-continue az aktuális iterációt ugorja át, és folytatja a következő iterációval.
+
+public class BreakContinueExample {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 10; i++) {
+            if (i == 5) {
+                continue; // Ugrik a 5-ös számra
+            }
+            System.out.println(i);
+        }
+    }
+}
+
+Kiírjuk a számokat 1-től 10-ig, de kihagyjuk a 5-öt.
+

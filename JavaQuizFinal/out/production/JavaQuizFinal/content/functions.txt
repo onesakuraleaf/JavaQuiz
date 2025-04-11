@@ -1,0 +1,149 @@
+A függvények központi szerepet töltenek be a programozásban, és egy programmegoldás végrehajtására szolgálnak részfeladatok sorozataként.
+
+1. A függvények előnyei:
+
+Újrafelhasználható kód: Egy függvény egyszeri definiálásával többször is meghívhatjuk, így elkerülhetjük a kód duplikálását.
+
+Kód szervezés: Segítenek a kód struktúráltabbá tételében, hiszen a programot kisebb részekre bontják.
+
+Olvashatóság és karbantarthatóság: A függvények segítenek abban, hogy a program olvashatóbbá és könnyebben karbantarthatóvá váljon.
+
+2. A függvények definíciója Java-ban
+
+A Java-ban a függvények hivatalos neve metódusok. Egy metódus definíciója a következő alapvető elemekből áll:
+
+Visszatérési típus: Meghatározza, hogy a metódus milyen típusú értéket ad vissza. Ha a metódus nem ad vissza értéket, akkor a void típus használatos.
+
+Metódus neve: A metódus neve, amely egyedi kell legyen, és azt a kód más részein hívjuk meg.
+
+Paraméterek: A metódus paraméterei azokat az értékeket tartalmazzák, amelyeket a metódus működéséhez használunk. Ezek opcionálisak.
+
+Metódus törzse: A metódus belső működése, amely az adott feladatot hajtja végre.
+
+Példa:
+
+public class SquareExample {
+
+    // Main metódus, amely elindítja a programot
+    public static void main(String[] args) {
+        int x = 5;
+        int result = square(x);  // square metódus hívása
+        System.out.println(x + " squared is " + result);  // Kiíratja a négyzetet
+    }
+
+    // square metódus deklarációja és definíciója
+    public static int square(int num) {
+        return num * num;  // Visszatér a szám négyzetével
+    }
+}
+
+Magyarázat:
+
+A square metódus egy egész számot vár (paraméter) és egy egész számot ad vissza (visszatérési típus int).
+
+A main metódus a program belépési pontja, amely meghívja a square metódust és kiírja az eredményt.
+
+3. A függvények deklarálása és meghívása
+
+A Java-ban nem szükséges külön függvényprototípusokat definiálni, mint a C nyelvben. A metódusokat közvetlenül a programban deklaráljuk és hívjuk meg. Azonban a következő szabályokat érdemes betartani:
+
+A metódus deklarációja tartalmazza a visszatérési típust, a nevet és a paramétereket.
+
+A metódusokat általában a main metódus után definiáljuk.
+
+4. Paraméterek és visszatérési típusok
+
+A Java-ban a metódusok lehetnek paraméteresek vagy paraméter nélküliak, és a visszatérési típusok szerint osztályozhatók. A metódusoknak több paramétere is lehet, és ezek típusát és nevét is deklarálni kell.
+
+Példa:
+
+public class Calculator {
+
+    public static void main(String[] args) {
+        int sumResult = add(3, 4);  // Add metódus hívása két paraméterrel
+        System.out.println("Sum: " + sumResult);  // Kiíratja az összeget
+    }
+
+    // Metódus, amely két számot ad össze
+    public static int add(int num1, int num2) {
+        return num1 + num2;  // Visszaadja az összeget
+    }
+}
+
+Magyarázat:
+
+Az add metódus két int típusú paramétert vár (num1 és num2), és egy int típusú eredményt ad vissza, amely az összeget tartalmazza.
+
+5. void típusú metódusok
+
+Ha egy metódus nem ad vissza értéket, akkor a void típus használatos. Ez gyakran előfordul, ha a metódus csak egy műveletet hajt végre, például kiíratást.
+
+Példa:
+
+public class DisplayMessage {
+
+    public static void main(String[] args) {
+        displayMessage();  // displayMessage metódus hívása
+    }
+
+    // Metódus, amely nem ad vissza értéket, csak kiírat egy üzenetet
+    public static void displayMessage() {
+        System.out.println("Hello, this is a message!");  // Üzenet kiíratása
+    }
+}
+
+Magyarázat:
+
+A displayMessage metódus nem ad vissza értéket (void), hanem csak kiírat egy szöveget a konzolra.
+
+6. A return utasítás
+
+A Java metódusokban a return kulcsszóval adhatjuk vissza az értéket a hívó metódus számára. A visszatérési érték típusa mindig egyezzen meg a metódus deklarált visszatérési típusával.
+
+Példa:
+
+public class ReturnExample {
+
+    public static void main(String[] args) {
+        int result = multiply(4, 5);  // multiply metódus hívása
+        System.out.println("Result: " + result);  // Kiíratja a szorzatot
+    }
+
+    // Metódus, amely két számot szoroz össze és visszaadja az eredményt
+    public static int multiply(int num1, int num2) {
+        return num1 * num2;  // Visszaadja a szorzatot
+    }
+}
+
+Magyarázat:
+
+A multiply metódus két paramétert vesz fel és visszaadja azok szorzatát. A return utasítással küldi vissza az eredményt.
+
+7. A metódusok felülírása (Override)
+
+A Java-ban létezik az a lehetőség is, hogy egy osztály leszármazottjai felülírhatják a szülőosztályban lévő metódusokat. Ehhez a @Override annotációt használjuk.
+
+Példa:
+
+class Animal {
+    public void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class OverrideExample {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.sound();  // A felülírt sound metódus hívása
+    }
+}
+
+A Dog osztály felülírja az Animal osztályban található sound metódust.
+
